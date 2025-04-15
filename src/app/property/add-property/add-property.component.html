@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-header">
+        Add New Property
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
+            <div class="form-group col-12" >
+                <label for="name">Name</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter property name"
+                    name="name"
+                    ngModel
+                    required
+                    #propName="ngModel"
+                />
+                @if(propName.invalid && (propName.dirty || propName.touched)) {
+                    <span  class="error-block">
+                        Please provide a name
+                    </span>
+                }
+            </div>
+            <div class="form-group col-12" >
+                <label for="type">Type</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="type"
+                    placeholder="Enter property type"
+                    name="type"
+                    ngModel
+                    required
+                    #propType="ngModel"
+                />
+                @if(propType.invalid && (propType.dirty || propType.touched)) {
+                    <span  class="error-block">
+                        Please provide a name
+                    </span>
+                }
+            </div>
+            <div class="form-group col-12" >
+                <label for="price">Price</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="price"
+                    placeholder="Enter property price"
+                    name="price"
+                    ngModel
+                    required
+                    #propPrice="ngModel"
+                />
+                @if(propPrice.invalid && (propPrice.dirty || propPrice.touched)) {
+                    <span  class="error-block">
+                        Please provide a name
+                    </span>
+                }
+            </div>
+
+            <div class="form-group col-12" >
+                <button [disabled]="!Form.valid" type="submit" class="btn btn-primary mr-2">Save</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
